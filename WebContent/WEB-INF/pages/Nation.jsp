@@ -16,14 +16,14 @@
 	<div align="center">
 
 		<h1>
-			<b style="font-size: 60px; color: red;">NAZIONI DEL CONTINENTE -${param.continent}-</b>
+			<b style="font-size: 60px; color: red;">NAZIONI DEL CONTINENTE -${continent}-</b>
 		</h1>
 		<table style="width: 100%">
 			<c:forEach items="${result}" var="nazione">
 
 				<tr>
 					<td style="width: 50%"><a
-						href="cityJdbc?continent=${param.continent}&nation=${nazione.code}"><b
+						href="cityJdbc?nation=${nazione.code}"><b
 							style="font-size: 60px; color: blue;">${nazione.name}</b></a></td>
 					<td style="width: 50%">
 					</td>

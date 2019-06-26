@@ -12,19 +12,15 @@
 <link href="stile.css" rel="stylesheet" type="text/css">
 
 <style type="text/css">
-
-	#Abutton {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-
-    text-decoration: none;
-    color: initial;
-    width: 100px;
-    text-align: center;
-    
-	}
-	
+#Abutton {
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	appearance: button;
+	text-decoration: none;
+	color: initial;
+	width: 100px;
+	text-align: center;
+}
 </style>
 
 </head>
@@ -34,37 +30,39 @@
 	<div align="center">
 
 		<h1>
-			<b style="font-size: 60px; color: red;">CITTA' DELLA NAZIONE -${param.nation}-</b>
+			<b style="font-size: 60px; color: red;">CITTA' DELLA NAZIONE
+				-${param.nation}-</b>
 		</h1>
 		<table style="width: 100%">
 			<tr>
-				<td>
-					<b style="font-size: 40px; color: green;">NOME CITTA 
-						<a href="cityJdbc?continent=${param.continent}&nation=${param.nation}&order=${order}" id="Abutton">${order}</a>  
-					</b>
-				</td>
+				<td><b style="font-size: 40px; color: green;">NOME CITTA <a
+						href="cityJdbc?nation=${param.nation}&order=${order}"
+						id="Abutton">${order}</a>
+				</b></td>
 			</tr>
-		
-		<c:forEach items="${result}" var="citta">
-			
+
+			<c:forEach items="${result}" var="citta">
+
 				<tr>
 					<td style="width: 50%"><a href=""><b
 							style="font-size: 60px; color: blue;">${citta.name}</b></a><br></td>
-					<td style="width: 25%">
-						<a href="deleteCity?continent=${param.continent}&nation=${param.nation}&idCity=${citta.idCity}" id="Abutton"> DELETE </a>
-					</td>
-					<td style="width: 25%">
-						<a href="updateCityPage?continent=${param.continent}&nation=${param.nation}&idCity=${citta.idCity}" id="Abutton"> MODIFY </a>
-					</td>
+					<td style="width: 25%"><a
+						href="deleteCity?nation=${param.nation}&idCity=${citta.idCity}"
+						id="Abutton"> DELETE </a></td>
+					<td style="width: 25%"><a
+						href="updateCityPage?nation=${param.nation}&idCity=${citta.idCity}&city=${citta.name}"
+						id="Abutton"> MODIFY </a></td>
 				</tr>
-			
 
-		</c:forEach>
+
+			</c:forEach>
 		</table>
-		<br> <br>
-		<a href="insertCityPage?continent=${param.continent}&nation=${param.nation}&idCity=" id="Abutton"> ADD CITY </a>
-		<br> <br> <br> <b> <a href="nationjdbc?continent=${param.continent}"><img
-			alt="back page button" src="backButton.png" width="100px"></a> </b>
+		<br> <br> <a
+			href="insertCityPage?nation=${param.nation}&idCity="
+			id="Abutton"> ADD CITY </a> <br> <br> <br> <b> <a
+			href="nationjdbc"><img
+				alt="back page button" src="backButton.png" width="100px"></a>
+		</b>
 
 	</div>
 

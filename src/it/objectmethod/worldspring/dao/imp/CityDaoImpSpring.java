@@ -7,13 +7,32 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
 import org.springframework.stereotype.Component;
 
+import it.objectmethod.worldspring.dao.ICityDao;
 import it.objectmethod.worldspring.domain.City;
 
 @Component
 public class CityDaoImpSpring extends NamedParameterJdbcDaoSupport implements ICityDao {
 
 	@Override
-	public List<City> getAllCitys(String nation, String order) {
+	public List<City> getAllCitys() {
+		List<City> citys = null;
+		
+		try {
+			
+			String sql = "SELECT DISTINCT ID idCity,Name name,CountryCode countryCode FROM city ORDER BY Name ASC";
+			MapSqlParameterSource params = new MapSqlParameterSource();
+			BeanPropertyRowMapper<City> rm = new BeanPropertyRowMapper<City>(City.class);
+			citys = getNamedParameterJdbcTemplate().query(sql, params, rm);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return citys;
+	}
+	
+	@Override
+	public List<City> getAllNationCitys(String nation, String order) {
 		List<City> citys = null;
 
 		try {

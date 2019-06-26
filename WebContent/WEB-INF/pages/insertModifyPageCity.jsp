@@ -15,15 +15,21 @@
 			<b style="font-size: 70px; color: red;">${titlePage} CITTA</b>
 		</h1>
 		<form method="GET" action="${formAction}">
-			<input type="hidden" value="${param.continent}" name="continent"> 
 			<input type="hidden" value="${param.idCity}" name="idCity"> 
 			Nome Città:<input type="text" name="city" value="${param.city}"><br><br> 
-			Codice Nazione:<input type="text" name="nation" value="${param.nation}" readonly="readonly"><br><br> 
+			Codice Nazione:
+			<select>
+				<option value="${param.nation}"> ${nameNation}</option>
+				<c:forEach items="${result}" var="citta">
+					<option value="${citta.code}"> ${citta.name} </option>
+				</c:forEach>
+			</select>
+			<br><br> 
 			<input type="submit" name="submit" value="${titlePage}">
 		</form>
 		
 		<br> <br> <br> <br>
-		<a href="cityJdbc?continent=${param.continent}&nation=${param.nation}">
+		<a href="cityJdbc?nation=${param.nation}">
 			<img alt="back page button" src="backButton.png" width="100px">
 		</a>
 	</div>

@@ -13,7 +13,7 @@
 
 	<mvc:annotation-driven />
 	<context:component-scan
-		base-package="it.objectmethod.controll" />
+		base-package="it.objectmethod.worldspring.controll" />
 	<mvc:default-servlet-handler />
 
 	<bean id="dataSource"
@@ -42,8 +42,5 @@
 		<property name="prefix" value="/WEB-INF/pages/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
-	<mvc:resources mapping="/go/**" location="/go/" />
-	<mvc:annotation-driven />
 
 </beans>
